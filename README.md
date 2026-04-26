@@ -74,6 +74,35 @@ What `run.ps1` does automatically:
 
 ---
 
+## Deploy on Streamlit Community Cloud
+
+If deployment fails with `ModuleNotFoundError: No module named pillow_heif`, make sure these files exist at repo root:
+
+1. `requirements.txt` (Python dependencies)
+2. `runtime.txt` (Python version)
+3. `packages.txt` (system packages like FFmpeg)
+
+This repository now includes:
+
+1. `requirements.txt` with `streamlit`, `pillow`, `pillow-heif`, and `tqdm`
+2. `runtime.txt` set to `python-3.12`
+3. `packages.txt` with `ffmpeg`
+
+### Deployment steps
+
+1. Push latest changes to GitHub.
+2. Open Streamlit Community Cloud and create/select your app.
+3. Set main file path to `app.py`.
+4. Click **Reboot app** or **Redeploy** after pushing updates.
+
+### If you still see errors
+
+1. Open **Manage app -> Logs** and confirm dependencies were installed from `requirements.txt`.
+2. Confirm app path points to `app.py` in the repository root.
+3. If needed, reboot the app to force a fresh environment build.
+
+---
+
 ## Option A: Folder mode (`convert.py`)
 
 Use this if you want a simple batch workflow with `input/` and `output/` folders.
