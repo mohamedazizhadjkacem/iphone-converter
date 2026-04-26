@@ -171,6 +171,75 @@ streamlit run app.py
 
 ---
 
+## Extra method: iPhone <-> Windows transfer without iTunes/iCloud
+
+If you want direct file transfer between your iPhone and Windows PC (both directions), you can also use a shared folder over your local network.
+
+This section is a practical summary inspired by:
+
+- Video: [How to Transfer Photos, Videos & Music Between iPhone & Windows PC | No iTunes or iCloud](https://www.youtube.com/watch?v=4QkmEVkMHKc)
+- Creator: Kevin Stratvert
+
+### Step-by-step
+
+1. Create a dedicated local Windows account for sharing (recommended for security).
+2. Create a folder on Windows and enable sharing permissions for that account.
+3. Find your PC local IPv4 address.
+4. On iPhone, open Files app and connect to the Windows shared folder (SMB).
+5. Transfer files from iPhone to PC, or from PC to iPhone.
+
+### Useful Windows commands
+
+Create local account:
+
+```cmd
+net user "USERNAME" "PASSWORD" /add
+```
+
+Delete local account:
+
+```cmd
+net user "USERNAME" /delete
+```
+
+Find local IPv4 address:
+
+```cmd
+ipconfig | find "IPv4"
+```
+
+### Suggested SMB path from iPhone Files app
+
+Use your PC IP or hostname in Files app > Connect to Server:
+
+```text
+smb://192.168.x.x
+```
+
+or
+
+```text
+smb://YOUR-PC-NAME
+```
+
+### Video timeline (quick navigation)
+
+1. `00:00` Introduction
+2. `00:24` Create local account in Windows
+3. `01:47` Create shared folder and permissions
+4. `04:05` Connect iPhone Files app to shared folder
+5. `05:29` Transfer iPhone -> PC
+6. `06:31` Transfer PC -> iPhone
+7. `07:51` Wrap up
+
+### Security tips
+
+1. Use a strong password for the dedicated share account.
+2. Share only one specific folder, not your entire user profile.
+3. Remove sharing or delete the account when you no longer need transfer access.
+
+---
+
 ## Supported formats
 
 ### Input photos
